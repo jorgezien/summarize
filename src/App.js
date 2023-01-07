@@ -8,13 +8,12 @@ import Login from './Login';
 import {app} from './Firebase'
 import React from 'react'
 // Initialize Firebase
-
 const analytics = getAnalytics(app);
 
 function App() {
   const [user, setUser] = React.useState(null);
   return (
-    <>{user ? <Login/> : <Login/>}</>
+    <>{user ? <Login/> : <Login setUser = {setUser} />}</>
     
   );
 }

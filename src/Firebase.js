@@ -5,7 +5,10 @@ import "firebase/auth"
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-export const app =  firebase.initializeApp({
+export const app =  
+console.log("akdka");
+firebase.initializeApp({
+  
   apiKey: "AIzaSyDuQ9ZcNIFeJTfoKbvegHkXI7nlR0Ap1Zc",
   authDomain: "summarize-f6d10.firebaseapp.com",
   projectId: "summarize-f6d10",
