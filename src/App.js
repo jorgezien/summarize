@@ -13,7 +13,7 @@ const analytics = getAnalytics(app);
 function App() {
   const [user, setUser] = React.useState(null);
   return (
-    <>{user ? <Login/> : <Login setUser = {setUser} />}</>
+    <>{user ? <Button></Button> : <Login setUser = {setUser} />}</>
     
   );
 }

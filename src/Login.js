@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
 import { app } from './Firebase';
 
 const Login = (props) => {
@@ -11,10 +11,22 @@ const Login = (props) => {
     const email = e.target.emailField.value;
     const passw = e.target.passwordField.value;
     console.log(email, passw);
-    createUserWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
-      console.log("usuario creado: ", firebaseUser)
-      props.setUser(firebaseUser)
-    });
+
+
+    {
+      isRegistering ?
+        createUserWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
+          console.log("usuario creado: ", firebaseUser)
+          props.setUser(firebaseUser)
+        })
+        :
+        signInWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
+          console.log("sesión iniciada: ", firebaseUser)
+          props.setUser(firebaseUser)
+        })
+    }
+
+
   }
   return (
     <div className='login-container'>
