@@ -12,7 +12,6 @@ const Login = (props) => {
     const passw = e.target.passwordField.value;
     console.log(email, passw);
 
-
     {
       isRegistering ?
         createUserWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {

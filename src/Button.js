@@ -1,6 +1,6 @@
-function Button () {
+function Button (props) {
     return (
-        <button className="btn-enviar">Enviar</button>
+        <button className="btn-enviar">{props.innerText}</button>
     );
 }
 

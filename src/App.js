@@ -7,13 +7,19 @@ import { getAnalytics } from "firebase/analytics";
 import Login from './Login';
 import {app} from './Firebase'
 import React from 'react'
+import TextInput from './TextInput';
+import WelcomePage from './WelcomePage';
+import { getAuth } from "firebase/auth"
+
 // Initialize Firebase
 const analytics = getAnalytics(app);
 
 function App() {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState(null)
+  
   return (
-    <>{user ? <Button></Button> : <Login setUser = {setUser} />}</>
+    <>{user ? <WelcomePage email={getAuth().currentUser.email} />
+    : <Login setUser = {setUser} />}</>
     
   );
 }
