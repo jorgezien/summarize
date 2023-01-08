@@ -131,6 +131,14 @@ button {
   border-radius: 15px;
 }
 
+.output-field-text {
+  margin: 1%;
+  width: 40vw;
+  height: 10vh;
+  border-radius: 15px;
+  background-color: #bebfc00d;
+}
+
 .div-welcome-page {
   margin: auto;
   text-align: center;

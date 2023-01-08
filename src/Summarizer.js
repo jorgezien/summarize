@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Configuration, OpenAIApi, createCompletion } from "openai";
+import Button from './Button';
 
-const Summary = () => {
+const Summary = (props) => {
   const [summary, setSummary] = useState('');
   const [input, setInput] = useState('');
 
@@ -19,26 +20,28 @@ const Summary = () => {
 
     const response = await openai.createCompletion({
         model: "text-babbage-001",
-        prompt: "Summarize this for a second-grade student:\n\nJupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky, and has been known to ancient civilizations since before recorded history. It is named after the Roman god Jupiter.[19] When viewed from Earth, Jupiter can be bright enough for its reflected light to cast visible shadows,[20] and is on average the third-brightest natural object in the night sky after the Moon and Venus.",
+        prompt: "Summarize this for a second-grade student:\n\n"+ document.getElementById('input-field').value,
         temperature: 0.7,
         max_tokens: 64,
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
-      });
-    console.log(response.request.response)
-    const text = response.data.choices[0].text;
-    console.log(text)
+      }); 
+      const textoFinal = response.data.choices[0].text;
+      console.log(textoFinal)
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Enter the text you want to summarize:
-        <textarea value={input} onChange={handleChange} />
-      </label>
-      <button type="submit">Summarize</button>
+      <textarea className='input-field-text' value={input} onChange={handleChange} id='input-field'/>
+      <div></div>
+      <Button innerText='Resumir el texto!' type="submit">Summarize</Button>
       {summary && <p>{summary}</p>}
+      <div></div>
+      <label className='label-input' for='output-field'>Texto resumido:</label>
+      <div></div>
+      <textarea className='output-field-text' value={summary.textoFinal} id='output-field' readOnly/> 
+      <div value={summary.textoFinal}/> 
     </form>
   );
 };
