@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Configuration, OpenAIApi, createCompletion } from "openai";
+import { Configuration, OpenAIApi } from "openai";
 import Button from './Button';
 
 const Summary = (props) => {

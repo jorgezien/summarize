@@ -1,6 +1,4 @@
 import React from 'react'
-import  TextInput from './TextInput'
-import Button from './Button'
 import Summarizer from './Summarizer'
 const WelcomePage = (props) => {
   try {

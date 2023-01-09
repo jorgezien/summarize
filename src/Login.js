@@ -12,18 +12,18 @@ const Login = (props) => {
     const passw = e.target.passwordField.value;
     console.log(email, passw);
 
-    {
-      isRegistering ?
-        createUserWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
-          console.log("usuario creado: ", firebaseUser)
-          props.setUser(firebaseUser)
-        })
-        :
-        signInWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
-          console.log("sesión iniciada: ", firebaseUser)
-          props.setUser(firebaseUser)
-        })
-    }
+
+    isRegistering ?
+      createUserWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
+        console.log("usuario creado: ", firebaseUser)
+        props.setUser(firebaseUser)
+      })
+      :
+      signInWithEmailAndPassword(auth, email, passw).then((firebaseUser) => {
+        console.log("sesión iniciada: ", firebaseUser)
+        props.setUser(firebaseUser)
+      })
+
 
 
   }
